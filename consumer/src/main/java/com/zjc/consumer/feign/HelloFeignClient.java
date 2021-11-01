@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @date 2021/10/30 11:35
  * @Description 远程调用生产者服务
  */
-@FeignClient(value = "prouducer",fallbackFactory = HelloFeignFallBackFactory.class) // 注册到nacos注册中心的服务名
+@FeignClient(value = "prouducer",fallbackFactory = HelloFeignFallBackFactory.class) // 注册到nacos注册中心的服务名 ,fallbackFactory 熔断器
 public interface HelloFeignClient {
     @RequestMapping("/hello/run")
     public String hello();

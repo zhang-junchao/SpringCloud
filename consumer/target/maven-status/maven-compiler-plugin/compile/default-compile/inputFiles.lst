@@ -1,1 +1,4 @@
-D:\user\zjc\IdeaProjects\springcloud\consumer\src\main\java\com\zjc\consumer\ConsumerApplication.java
+/Users/zhangjunchao/IdeaProjects/SpringCloud/consumer/src/main/java/com/zjc/consumer/ConsumerApplication.java
+/Users/zhangjunchao/IdeaProjects/SpringCloud/consumer/src/main/java/com/zjc/consumer/feign/fallback/HelloFeignFallBackFactory.java
+/Users/zhangjunchao/IdeaProjects/SpringCloud/consumer/src/main/java/com/zjc/consumer/feign/HelloFeignClient.java
+/Users/zhangjunchao/IdeaProjects/SpringCloud/consumer/src/main/java/com/zjc/consumer/controller/Hello.java
