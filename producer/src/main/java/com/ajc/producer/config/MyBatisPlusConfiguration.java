@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Configuration;
 
 /**
  * @author : zhangjunchao
- * @version : v4.0
+ * @version : 1.0
  * @description TODO
  * @date : 2021/10/27 2:37 下午
  */
