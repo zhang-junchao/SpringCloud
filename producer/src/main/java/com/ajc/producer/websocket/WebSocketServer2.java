@@ -49,12 +49,11 @@ public class WebSocketServer2
         this.session = session;
         //获取客户端连接信息
         InetSocketAddress remoteAddress = WebSocketUtil.getRemoteAddress(session);
-        Principal userPrincipal = session.getUserPrincipal();
         //加入set中
         webSocketSet.add(this);
         //添加在线人数
         addOnlineCount();
-        System.out.println("新连接接入。当前在线人数为：" + getOnlineCount());
+        System.out.println("test-two新连接接入。当前在线人数为：" + getOnlineCount()+ " -> ip ：" + remoteAddress.getAddress());
     }
 
         /**
@@ -66,7 +65,7 @@ public class WebSocketServer2
         webSocketSet.remove(this);
         //在线数减1
         subOnlineCount();
-        System.out.println("有连接关闭。当前在线人数为：" + getOnlineCount());
+        System.out.println("test-two有连接关闭。当前在线人数为：" + getOnlineCount());
     }
 
         /**
@@ -77,7 +76,7 @@ public class WebSocketServer2
          */
         @OnMessage
         public void onMessage(String message, Session session) {
-        System.out.println("客户端发送的消息：" + message);
+        System.out.println("test-two 客户端发送的消息：" + message);
         sendAll(message);
     }
 

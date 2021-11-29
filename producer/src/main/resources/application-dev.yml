@@ -14,11 +14,11 @@ spring:
       datasource:
         master:
           driver-class-name: com.mysql.jdbc.Driver
-          url: jdbc:mysql://localhost:3306/zhang
+          url: jdbc:mysql://172.16.1.39:3306/zhang
           username: root
-          password: zhang521.
+          password: root
         slave:
           driver-class-name: com.mysql.jdbc.Driver
-          url: jdbc:mysql://localhost:3306/test
+          url: jdbc:mysql://172.16.1.39:3306/test
           username: root
-          password: zhang521.
+          password: root

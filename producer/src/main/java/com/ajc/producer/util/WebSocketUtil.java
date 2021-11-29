@@ -1,9 +1,15 @@
 package com.ajc.producer.util;
 
+import org.apache.ibatis.ognl.DefaultMemberAccess;
+import org.apache.ibatis.ognl.Ognl;
+import org.apache.ibatis.ognl.OgnlContext;
+import org.apache.ibatis.ognl.OgnlException;
+
 import javax.websocket.RemoteEndpoint;
 import javax.websocket.Session;
 import java.lang.reflect.Field;
 import java.net.InetSocketAddress;
+import java.util.Map;
 
 /**
  * @author : zhangjunchao
@@ -16,6 +22,7 @@ public class WebSocketUtil {
         if (session == null) {
             return null;
         }
+        Map<String, Object> userProperties = session.getUserProperties();
         RemoteEndpoint.Async async = session.getAsyncRemote();
 
         //在Tomcat 8.0.x版本有效
@@ -50,4 +57,44 @@ public class WebSocketUtil {
 
         return null;
     }
+
+    private static OgnlContext context = new OgnlContext();
+    /**
+     * set DefaultMemberAccess with allowed access into the context
+     */
+    static {
+        context.setMemberAccess(new DefaultMemberAccess(true));
+    }
+    public static String getRemoteAddress2(final Session session) {
+        //.getAddress().getHostAddress()
+        //.holder.addr.hostName
+        //.holder.addr.holder.address
+        //.holder.addr.holder.hostName
+        //return (String) eval(session,"#root.channel.remoteAddress");
+        return eval(session, "#root.channel.remoteAddress.getAddress().getHostAddress()", String.class);
+    }
+
+
+    public static <T> T eval(final Object source, final String expression, Class<T> targetClass) {
+        try {
+            return (T) Ognl.getValue(expression, context, source);
+        } catch (OgnlException e) {
+            System.out.println("评估表达式出错:{}");
+            throw new IllegalAccessError("expression invalid");
+        }
+    }
+
+
+
+    public static Object eval(final Object source, final String expression) {
+        Object value = null;
+        try {
+            value = Ognl.getValue(expression, context, source);
+        } catch (OgnlException e) {
+            System.out.println("评估表达式出错:{}");
+        }
+        return value;
+    }
+
+
 }

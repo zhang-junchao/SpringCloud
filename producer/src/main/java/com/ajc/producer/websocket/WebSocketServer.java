@@ -1,5 +1,6 @@
 package com.ajc.producer.websocket;
 
+import com.ajc.producer.filter.WebSocketConfigurator;
 import com.ajc.producer.util.WebSocketUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
@@ -25,7 +26,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  */
 @Component
 @Slf4j
-@ServerEndpoint(value = "/test/one")
+@ServerEndpoint(value = "/test/one",configurator = WebSocketConfigurator.class)
 public class WebSocketServer {
     /**
      * 静态变量，用来记录在线连接数，应该把它设计成线程安全的
@@ -42,6 +43,8 @@ public class WebSocketServer {
      */
     private Session session ;
 
+    private String ipAddr;
+
     /**
      * 连接建立成功调用的方法
      *
@@ -50,13 +53,15 @@ public class WebSocketServer {
     @OnOpen
     public void onOpen(Session session) {
         this.session = session;
-        InetSocketAddress remoteAddress = WebSocketUtil.getRemoteAddress(session);
-        Principal userPrincipal = session.getUserPrincipal();
+        //InetSocketAddress remoteAddress = WebSocketUtil.getRemoteAddress(session);
+        Map<String, Object> userProperties = session.getUserProperties();
+        this.ipAddr = (String) userProperties.get(WebSocketConfigurator.IP_ADDR);
+        System.out.println(ipAddr);
         //加入set中
         webSocketSet.add(this);
         //添加在线人数
         addOnlineCount();
-        System.out.println("新连接接入。当前在线人数为：" + getOnlineCount());
+        System.out.println("test-one新连接接入。当前在线人数为：" + getOnlineCount() + " -> ip ：" + ipAddr);
     }
 
     /**
@@ -68,7 +73,7 @@ public class WebSocketServer {
         webSocketSet.remove(this);
         //在线数减1
         subOnlineCount();
-        System.out.println("有连接关闭。当前在线人数为：" + getOnlineCount());
+        System.out.println("test-one有连接关闭。当前在线人数为：" + getOnlineCount());
     }
 
     /**
@@ -79,7 +84,7 @@ public class WebSocketServer {
      */
     @OnMessage
     public void onMessage(String message, Session session) {
-        System.out.println("客户端发送的消息：" + message);
+        System.out.println("test-one客户端发送的消息：" + message);
         sendAll(message);
     }
 

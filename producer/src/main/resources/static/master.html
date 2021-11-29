@@ -21,7 +21,7 @@
     function send1() {
         // 获取第一屏输入框的值
         var message = document.getElementById('text1').value;
-        var url = "http://192.168.1.105:18092/socket/one/msg?msg="+message;
+        var url = "http://172.16.1.39:18092/socket/one/msg?msg="+message;
         // 创建请求对象
         var requestClient = new XMLHttpRequest();
         requestClient.open("GET",url,true);
@@ -32,7 +32,7 @@
     function send2() {
         // 获取第二屏输入框的值
         var message = document.getElementById('text2').value;
-        var url = "http://192.168.1.105:18092/socket/two/msg?msg="+message;
+        var url = "http://172.16.1.39:18092/socket/two/msg?msg="+message;
         var requestClient = new XMLHttpRequest();
         requestClient.open("GET",url,true);
         requestClient.send(null);

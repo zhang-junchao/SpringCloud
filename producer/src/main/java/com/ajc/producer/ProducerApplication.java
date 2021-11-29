@@ -6,6 +6,7 @@ import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
+import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 /**
@@ -19,6 +20,7 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 @SpringBootApplication(exclude = DruidDataSourceAutoConfigure.class)
 //启用服务发现注解
 @EnableDiscoveryClient
+@ServletComponentScan("com.ajc.producer.filter")
 @MapperScan("com.ajc.producer.mapper")
 public class ProducerApplication {
 
