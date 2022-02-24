@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: org.elasticsearch.plugin:rank-eval-client:6.6.0">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/Desktop/zhangjunchao/apache-maven-3.8.1/repository/org/elasticsearch/plugin/rank-eval-client/6.6.0/rank-eval-client-6.6.0.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/Desktop/zhangjunchao/apache-maven-3.8.1/repository/org/elasticsearch/plugin/rank-eval-client/6.6.0/rank-eval-client-6.6.0-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/Desktop/zhangjunchao/apache-maven-3.8.1/repository/org/elasticsearch/plugin/rank-eval-client/6.6.0/rank-eval-client-6.6.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

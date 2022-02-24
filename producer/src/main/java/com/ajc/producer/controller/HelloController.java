@@ -1,5 +1,7 @@
 package com.ajc.producer.controller;
 
+import com.ajc.producer.service.EsService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -13,9 +15,19 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/hello")
 public class HelloController {
 
+    @Autowired
+    EsService esService ;
     @RequestMapping("/run")
     public String hello(){
         return "This is My Producer Server ! ! ! " ;
+    }
+
+
+    @RequestMapping("/addIndex")
+    public String add_index(){
+        esService.addIndex();
+
+        return "success";
     }
 
 }

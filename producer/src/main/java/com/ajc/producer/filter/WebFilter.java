@@ -9,10 +9,10 @@ import java.io.IOException;
 /**
  * @author : zhangjunchao
  * @version : v4.0
- * @description TODO
+ * @description 拦截所有请求，获取所有请求的ip地址
  * @date : 2021/11/11 2:17 下午
  */
-@javax.servlet.annotation.WebFilter(filterName = "sessionFilter",urlPatterns = "/*")
+@javax.servlet.annotation.WebFilter(filterName = "sessionFilter",urlPatterns = "/socket/*")
 @Order(1)
 public class WebFilter implements Filter {
 

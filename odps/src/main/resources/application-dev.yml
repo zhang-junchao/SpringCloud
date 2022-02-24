@@ -1,0 +1,10 @@
+server:
+  port: 8091
+spring:
+  application:
+    name: odps
+  cloud:
+    nacos:
+      discovery:
+        server-addr: mynacos
+        namespace: Public

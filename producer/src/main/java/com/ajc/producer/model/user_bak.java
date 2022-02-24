@@ -10,7 +10,7 @@ import lombok.Data;
  * @date : 2021/11/1 3:04 下午
  */
 @Data
-public class user {
+public class user_bak {
     private Integer id ;
     private String name ;
     private Integer age ;
