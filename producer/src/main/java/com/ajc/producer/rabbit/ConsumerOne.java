@@ -42,7 +42,7 @@ public class ConsumerOne {
              * 1. 消息标记位置
              * 2. 是否批量提交 ，提交会整个信道都提交（不建议）
              */
-            channel.basicAck(message.getEnvelope().getDeliveryTag(),false);
+            channel.basicAck( message.getEnvelope().getDeliveryTag(),false);
             System.out.println("提交成功");
         } ,message -> {
             System.out.println("消息异常");
