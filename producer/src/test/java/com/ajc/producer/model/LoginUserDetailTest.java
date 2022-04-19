@@ -1,6 +1,7 @@
 package com.ajc.producer.model;
 
 import org.junit.jupiter.api.Test;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -18,5 +19,12 @@ class LoginUserDetailTest {
         System.out.println(encode);
         System.out.println(passwordEncoder.matches("123123123",encode));
     }
+    @Autowired
+    private RabbitTemplate rabbitTemplate ;
 
+    @Test
+    public void mq(){
+        rabbitTemplate.convertAndSend("X","XA","来自与10s的队列 : " );
+
+    }
 }

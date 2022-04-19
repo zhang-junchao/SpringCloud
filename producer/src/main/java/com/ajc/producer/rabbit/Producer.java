@@ -37,7 +37,7 @@ public class Producer {
          */
         channel.queueDeclare(zhang, true, false, false, null);
 
-        //开启发布确认消息
+        //开启发布确认消息 
         channel.confirmSelect();
 
         ConcurrentSkipListMap<Long,String> outStandingConfirms = new ConcurrentSkipListMap<>();

@@ -1,6 +1,7 @@
 package com.ajc.producer;
 
 import com.ajc.producer.config.EsConfig;
+import com.ajc.producer.config.RabbitMqConfig;
 import com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceAutoConfigure;
 import lombok.extern.slf4j.Slf4j;
 import org.mybatis.spring.annotation.MapperScan;
